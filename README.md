@@ -3,3 +3,7 @@
 MONTAUT Pierre-Sébastien
 PATUREL Stanislas
 Bienvenue
+
+-----------------------------------------------------------
+
+Bonjour, vous trouverez ci-dessous un guide d'utilisation de notre logiciel.
