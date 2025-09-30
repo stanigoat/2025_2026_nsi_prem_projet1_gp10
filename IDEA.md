@@ -11,4 +11,4 @@ Comment on va faire ?
     Pour l'affichage du solde, juste utiliser une variable, changer sa valeur et la print
     Pour les dépôts/retraits, modifier la valeur du solde, proposer des types de coupures
     Essayer de mettre le logiciel en éxecutbale .exe
-    
+    Proposer en plusieurs langues
