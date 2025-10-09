@@ -1,5 +1,7 @@
 #Vous trouverez ici le code des différentes fonctions uniques à la fonction main
-quitting_words = ["quit", "stop", "bye", ""]
+import json
+
+quitting_words = ["quit", "stop", "bye"]
 
 def load_database():
     with open("database.json", "r") as f:
@@ -14,7 +16,7 @@ def re_ask_user_choice():
     choice = input("Veuillez choisir une option dans la liste ci-dessus : ")
     return choice
 
-def register_user():
+def login_user():
     users_database = load_database()
     user_answ = input("Veuillez rentrer votre prénom")
     while user_answ not in quitting_words:
