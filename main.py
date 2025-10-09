@@ -14,3 +14,5 @@ def connection():
     elif answer == "2":
         sys.exit
     else: re_ask_user_choice()
+
+connection()
