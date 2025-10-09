@@ -9,3 +9,6 @@
 # EX : MonLabel = tkinter.Label (MaFenetre , texte= " ma premiere fenetre ! ")
 # pour l'ajouter dans la fenetre, faire : MonLabel.pack() 
 # https://www.youtube.com/watch?v=xnRP3VN6jjo&t=137s #
+
+l'utilisation de tkinter ne sert peut etre à rien ou ne marche tout simplement pas. 
+
