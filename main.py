@@ -17,7 +17,8 @@ def connection():
     if choice == "1":
         login_user()
     elif choice == "2":
-        sys.exit
+        exit()
     else: re_ask_user_choice()
 
 connection()
+
