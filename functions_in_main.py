@@ -20,10 +20,9 @@ def login_user():
     users_database = load_database()
     user_answ = input("Veuillez rentrer votre prénom : ")
     while user_answ not in quitting_words:
-        for answ_check in users_database:
-            if user_answ == answ_check:
-                pin_check = int(input("Veuillez rentrer votre pin : "))
-                if pin_check == users_database[answ_check]["PIN"]:
-                    print("Connexion réussie")
-                else: print("Veuillez réessayer")
-            else: print("Votre nom n'est pas dans notre base de données")
+        if user_answ in users_database:
+            pin_check = int(input("Veuillez rentrer votre pin : "))
+            if pin_check == users_database[user_answ]["PIN"]:
+                print("Connexion réussie")
+            else: print("Veuillez réessayer")
+        else: print("Votre nom n'est pas dans notre base de données")
