@@ -14,25 +14,11 @@ def connection():
 
     choice = ask_user_choice()
 
-    if choice == "1":
-        login_user()
-    elif choice == "2":
-        exit()
-    else: re_ask_user_choice()
+    while choice not in quitting_words:
+        if choice == "1":
+            login_user()
+        elif choice == "2":
+            exit()
+        else: re_ask_user_choice()
 
 connection()
-
-def after_connection():
-    show_all_actions()
-
-    choice = ask_user_choice
-
-    if choice == "1":
-        depot_user()
-    elif choice == "2":
-        retrait_user()
-    elif choice == "3":
-        show_balance_user()
-    else : re_ask_user_choice()
-
-after_connection()
