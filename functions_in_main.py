@@ -24,5 +24,6 @@ def login_user():
             pin_check = int(input("Veuillez rentrer votre pin : "))
             if pin_check == users_database[user_answ]["PIN"]:
                 print("Connexion réussie")
+                return
             else: print("Veuillez réessayer")
         else: print("Votre nom n'est pas dans notre base de données")
