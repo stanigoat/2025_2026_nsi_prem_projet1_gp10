@@ -21,6 +21,7 @@ def connection():
     else: re_ask_user_choice()
 
 connection()
+<<<<<<< Updated upstream
 
 def after_connection():
     show_all_actions()
@@ -36,3 +37,5 @@ def after_connection():
     else : re_ask_user_choice()
 
 after_connection()
+=======
+>>>>>>> Stashed changes
