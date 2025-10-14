@@ -22,3 +22,17 @@ def connection():
 
 connection()
 
+def after_connection():
+    show_all_actions()
+
+    choice = ask_user_choice
+
+    if choice == "1":
+        depot_user()
+    elif choice == "2":
+        retrait_user()
+    elif choice == "3":
+        show_balance_user()
+    else : re_ask_user_choice()
+
+after_connection()
