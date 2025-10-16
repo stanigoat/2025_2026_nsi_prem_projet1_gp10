@@ -1,5 +1,4 @@
 #Vous trouverez ici le code principal de notre logiciel
-from functions_bank_balance import *
 from functions_in_main import *
 
 load_database()
@@ -24,9 +23,11 @@ def connection():
 connection()
 
 def after_login():
-    show_options():
+    show_options()
 
     choice = ask_user_choice()
 
     if choice == "1":
         show_user_balance()
+
+    
