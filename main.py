@@ -39,7 +39,4 @@ def after_connection():
     else : re_ask_user_choice()
 
 after_connection()
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> 56d07e811606adf683795fcadd20e371c99e5c20
+
