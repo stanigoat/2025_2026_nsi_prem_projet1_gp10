@@ -83,7 +83,7 @@ def not_a_number(number):
 def re_ask_amount():
     amount = input("Veuillez rentrez un nombre comme montant de dépôt/retrait")
 
-def ask_user_withdr(amount):
+def ask_user_withdr():
     amount = input("Veuillez rentrer le montant de votre dépôt/retrait : ")
     while not_a_number(amount):
         amount = re_ask_amount()
@@ -102,3 +102,11 @@ def withdr_to_balance(amount):
         json.dump(users_database, f, indent=4)
 
     print(f"Vous avez effectué un dépôt de {amount} €, votre solde banquaire est donc désormais de {withdr}")
+
+def ask_if_user_want_action():
+    print("******************** LOGICIEL BANQUAIRE ********************")
+    print("Voulez-vous continuez à utiliser notre logiciel ?")
+    print("-----------------------------------------------------------")
+    print("1. CONTINUER")
+    print("2. QUITTER")
+    print("-----------------------------------------------------------")

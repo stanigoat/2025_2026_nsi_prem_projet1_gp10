@@ -25,5 +25,22 @@ def after_login():
 
     if choice == "1":
         show_user_balance()
+    if choice == "2":
+        ask_user_depot()
+    if choice == "3":
+        ask_user_withdr()
+    else:
+        quit()
+
+def after_action():
+    ask_if_user_want_action()
+
+    choice = ask_user_choice
+
+    if choice == "1":
+        after_login()
+    elif choice == "2":
+        quit()
+
 
     
