@@ -22,3 +22,11 @@ def connection():
         else: choice = re_ask_user_choice()
 
 connection()
+
+def after_login():
+    show_options():
+
+    choice = ask_user_choice()
+
+    if choice == "1":
+        show_user_balance()
