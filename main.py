@@ -24,9 +24,39 @@ def connection():
 connection()
 
 def after_login():
-    show_options():
+    show_options()
 
     choice = ask_user_choice()
 
     if choice == "1":
         show_user_balance()
+    if choice == "2" :
+        ask_user_depot() 
+    if choice == "3" :
+        ask_user_retrait
+    if choice == "4" :
+        user_leave()
+    
+
+def after_action() : 
+    ask_user_action()
+
+    choice = ask_user_choice
+   
+    if choice =="1" :
+        after_login()
+    if choice == "2" : 
+        user_leave()    
+    
+
+
+
+
+
+        
+    
+
+
+
+
+
