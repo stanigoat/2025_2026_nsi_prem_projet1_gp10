@@ -14,13 +14,15 @@ def connection():
 
     choice = ask_user_choice()
 
-    if choice == "1":
-        login_user()
-    elif choice == "2":
-        exit()
-    else: re_ask_user_choice()
+    while choice not in quitting_words:
+        if choice == "1":
+            login_user()
+        elif choice == "2":
+            exit()
+        else: re_ask_user_choice()
 
 connection()
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
 def after_connection():
@@ -39,3 +41,5 @@ def after_connection():
 after_connection()
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> 56d07e811606adf683795fcadd20e371c99e5c20
