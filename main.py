@@ -19,6 +19,6 @@ def connection():
             login_user()
         elif choice == "2":
             exit()
-        else: re_ask_user_choice()
+        else: choice = re_ask_user_choice()
 
 connection()
