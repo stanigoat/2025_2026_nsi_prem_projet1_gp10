@@ -4,13 +4,7 @@ from functions_in_main import *
 load_database()
 
 def connection():
-    print("******************** LOGICIEL BANQUAIRE ********************")
-    print("Options")
-    print("-----------------------------------------------------------")
-    print("1. SE CONNECTER")
-    print("2. QUITTER")
-    print("-----------------------------------------------------------")
-
+    show_intro()
     choice = ask_user_choice()
 
     while choice not in quitting_words:
@@ -19,7 +13,8 @@ def connection():
             exit()
         elif choice == "2":
             exit()
-        else: choice = re_ask_user_choice()
+        else:
+            choice = re_ask_user_choice()
 
 connection()
 
