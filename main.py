@@ -22,6 +22,7 @@ def connection():
         else: choice = re_ask_user_choice()
 
 connection()
+<<<<<<< HEAD
 
 def after_login():
     show_options():
@@ -30,3 +31,23 @@ def after_login():
 
     if choice == "1":
         show_user_balance()
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+
+def after_connection():
+    show_all_actions()
+
+    choice = ask_user_choice
+
+    if choice == "1":
+        depot_user()
+    elif choice == "2":
+        retrait_user()
+    elif choice == "3":
+        show_balance_user()
+    else : re_ask_user_choice()
+
+after_connection()
+
+>>>>>>> 0b8d23071764146a12dcac62f3a107be81825676
