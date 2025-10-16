@@ -16,6 +16,7 @@ def connection():
     while choice not in quitting_words:
         if choice == "1":
             login_user()
+            exit()
         elif choice == "2":
             exit()
         else: choice = re_ask_user_choice()
