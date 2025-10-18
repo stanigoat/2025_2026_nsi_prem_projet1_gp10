@@ -2,7 +2,6 @@
 import json
 
 quitting_words = ["quit", "stop", "bye"]
-numbers_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 def load_database():
     with open("database.json", "r") as f:
@@ -46,15 +45,17 @@ def show_options():
     print("1. AFFICHER LE SOLDE")
     print("2. DEPOT")
     print("3. RETRAIT")
+    print("4. QUITTER")
     print("-----------------------------------------------------------")
 
 def show_user_balance():
     users_database = load_database()
-    solde = users_database[current_user]["solde"]
+    solde = users_database[current_user]["Balance"]
     print(f"Votre solde banquaire est : {solde} €")
 
 def ask_user_depot():
     amount = input("Veuillez rentrer le montant de votre dépôt : ")
+
     while not_a_number(amount):
         amount = re_ask_amount()
 
@@ -74,19 +75,27 @@ def depot_to_balance(amount):
     print(f"Vous avez effectué un dépôt de {amount} €, votre solde banquaire est donc désormais de {depot}€")
 
 def not_a_number(number):
+    numbers_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     for character in number:
         if character not in numbers_list:
-            return False
-        else:
             return True
+        else:
+            return False
+
+def is_negative(amount):
+    if int(amount) > 0:
+        return True
 
 def re_ask_amount():
     amount = input("Veuillez rentrez un nombre comme montant de dépôt/retrait")
 
 def ask_user_withdr():
-    amount = input("Veuillez rentrer le montant de votre dépôt/retrait : ")
-    while not_a_number(amount):
-        amount = re_ask_amount()
+    amount = input("Veuillez rentrer le montant de votre retrait : ")
+    while True:
+        if not_a_number(amount):
+            amount = re_ask_amount()
+        elif is_negative(amount):
+            amount = re_ask_amount()
 
     withdr_to_balance(amount)
     return amount
@@ -101,7 +110,7 @@ def withdr_to_balance(amount):
     with open("database.json", "w") as f:
         json.dump(users_database, f, indent=4)
 
-    print(f"Vous avez effectué un dépôt de {amount} €, votre solde banquaire est donc désormais de {withdr}")
+    print(f"Vous avez effectué un retrait de {amount} €, votre solde banquaire est donc désormais de {withdr}")
 
 def ask_if_user_want_action():
     print("******************** LOGICIEL BANQUAIRE ********************")

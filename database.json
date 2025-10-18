@@ -1,18 +1,18 @@
 {
     "Patrick": {
         "PIN": 3551,
-        "Balance": 354564
+        "Balance": 354567
     },
     "Pascal": {
         "PIN": 1254,
         "Balance": 5463
     },
     "Victor": {
-        "PIN" : 3519,
+        "PIN": 3519,
         "Balance": 50000
     },
     "Bruce": {
-        "PIN" : 7544,
-        "Balance" : 47655
-    } 
+        "PIN": 7544,
+        "Balance": 47655
+    }
 }
