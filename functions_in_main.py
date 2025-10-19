@@ -27,17 +27,23 @@ def re_ask_user_choice():
 def login_user():
     global current_user
     users_database = load_database()
+
     user_answ = input("Veuillez rentrer votre prénom : ")
+
     while user_answ not in quitting_words:
+
         if user_answ in users_database:
             pin_check = int(input("Veuillez rentrer votre pin : "))
+
             if pin_check == users_database[user_answ]["PIN"]:
                 print("Connexion réussie")
                 current_user = user_answ
                 return
-            else: print("Veuillez réessayer")
-        else: print("Votre nom n'est pas dans notre base de données")
 
+            else: print("Veuillez réessayer")
+
+        else: print("Votre nom n'est pas dans notre base de données")
+        user_answ = input("Veuillez rentrer votre prénom : ")
 def show_options():
     print("******************** LOGICIEL BANQUAIRE ********************")
     print("Options")
@@ -56,7 +62,7 @@ def show_user_balance():
 def ask_user_depot():
     amount = input("Veuillez rentrer le montant de votre dépôt : ")
 
-    while not_a_number(amount):
+    while not is_amount_valid(amount):
         amount = re_ask_amount()
 
     depot_to_balance(amount)
@@ -74,28 +80,24 @@ def depot_to_balance(amount):
 
     print(f"Vous avez effectué un dépôt de {amount} €, votre solde banquaire est donc désormais de {depot}€")
 
-def not_a_number(number):
-    numbers_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    for character in number:
-        if character not in numbers_list:
-            return True
-        else:
-            return False
 
-def is_negative(amount):
-    if int(amount) > 0:
-        return True
+def is_amount_valid(amount):
+    if not amount.strip():
+        return False
+    try:
+        return int(amount) > 0
+    except ValueError:
+        return False
 
 def re_ask_amount():
-    amount = input("Veuillez rentrez un nombre comme montant de dépôt/retrait")
+    amount = input("Veuillez rentrez un nombre positif comme montant de dépôt/retrait : ")
+    return amount
 
 def ask_user_withdr():
     amount = input("Veuillez rentrer le montant de votre retrait : ")
-    while True:
-        if not_a_number(amount):
-            amount = re_ask_amount()
-        elif is_negative(amount):
-            amount = re_ask_amount()
+
+    while not is_amount_valid(amount):
+        amount = re_ask_amount()
 
     withdr_to_balance(amount)
     return amount

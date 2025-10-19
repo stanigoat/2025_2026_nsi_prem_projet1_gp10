@@ -11,6 +11,6 @@ Comment on va faire ?
     Coder sur différentes pages pour améliorer la lisibilité ainsi que pour éviter les problèmes avec GitHub
     Pour le quit , utiliser une liste de quitting words avec un while ou un bouton d'option proposé à chaque fois
     Pour l'affichage du solde, juste utiliser une variable, changer sa valeur et la print
-    Pour les dépôts/retraits, modifier la valeur du solde, proposer des types de coupures
+    Pour les dépôts/retraits, modddifier la valeur du solde, proposer des types de coupures
     Essayer de mettre le logiciel en éxecutbale .exe
     Proposer en plusieurs langues

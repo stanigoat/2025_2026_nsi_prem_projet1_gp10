@@ -42,11 +42,14 @@ def after_action():
 
     if choice == "1":
         after_login()
+        return True
     elif choice == "2":
         quit()
 
 connection()
 after_login()
-after_action()
+while True:
+    after_action()
+
 
     
