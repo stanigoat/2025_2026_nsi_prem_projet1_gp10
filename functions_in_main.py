@@ -24,6 +24,7 @@ def ask_user_choice():
 def re_ask_user_choice():
     choice = input("Veuillez choisir une option dans la liste ci-dessus : ")
     return choice
+
 def login_user():
     global current_user
     users_database = load_database()
@@ -44,6 +45,7 @@ def login_user():
 
         else: print("Votre nom n'est pas dans notre base de données")
         user_answ = input("Veuillez rentrer votre prénom : ")
+
 def show_options():
     print("******************** LOGICIEL BANQUAIRE ********************")
     print("Options")

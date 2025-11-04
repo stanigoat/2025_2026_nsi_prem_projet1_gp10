@@ -1,27 +1,20 @@
 #Vous trouverez ici le code principal de notre logiciel
-from functions_bank_balance import *
 from functions_in_main import *
 
 load_database()
 
 def connection():
-    print("******************** LOGICIEL BANQUAIRE ********************")
-    print("Options")
-    print("-----------------------------------------------------------")
-    print("1. SE CONNECTER")
-    print("2. QUITTER")
-    print("-----------------------------------------------------------")
-
+    show_intro()
     choice = ask_user_choice()
 
     while choice not in quitting_words:
         if choice == "1":
             login_user()
+            return
         elif choice == "2":
             exit()
-        else: choice = re_ask_user_choice()
-
-connection()
+        else:
+            choice = re_ask_user_choice()
 
 def after_login():
     show_options()
@@ -30,27 +23,33 @@ def after_login():
 
     if choice == "1":
         show_user_balance()
-    if choice == "2" :
-        ask_user_depot() 
-    if choice == "3" :
-        ask_user_retrait
-    if choice == "4" :
-        user_leave()
-    
+        return
+    elif choice == "2":
+        ask_user_depot()
+        return
+    elif choice == "3":
+        ask_user_withdr()
+        return
+    elif choice == "4":
+        quit()
+    else:
+        choice = re_ask_user_choice()
 
-def after_action() : 
-    ask_user_action()
+def after_action():
+    ask_if_user_want_action()
 
-    choice = ask_user_choice
-   
-    if choice =="1" :
+    choice = ask_user_choice()
+
+    if choice == "1":
         after_login()
-    if choice == "2" : 
-        user_leave()    
-    
+        return True
+    elif choice == "2":
+        quit()
 
-
-
+connection()
+after_login()
+while True:
+    after_action()
 
 
         
