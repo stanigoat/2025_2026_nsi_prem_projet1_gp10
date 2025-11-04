@@ -8,11 +8,11 @@
         "Balance": 5463
     },
     "Victor": {
-        "PIN" : 3519,
+        "PIN": 3519,
         "Balance": 50000
     },
     "Bruce": {
-        "PIN" : 7544,
-        "Balance" : 47655
-    } 
+        "PIN": 7544,
+        "Balance": 47655
+    }
 }

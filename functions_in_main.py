@@ -34,14 +34,22 @@ def login_user():
     while user_answ not in quitting_words:
 
         if user_answ in users_database:
-            pin_check = int(input("Veuillez rentrer votre pin : "))
+            pin_check = int(input("Veuillez rentrer votre pin ( ex : 1234 ): "))
 
-            if pin_check == users_database[user_answ]["PIN"]:
-                print("Connexion réussie")
-                current_user = user_answ
-                return
+            while pin_check != users_database[user_answ]["PIN"]:
+                print("Veuillez réessayer")
+                pin_check = int(input("Veuillez rentrer votre PIN ( ex : 1234 ): "))
 
-            else: print("Veuillez réessayer")
+            print("Connexion réussie")
+            current_user = user_answ
+            return  
+        
+            #if pin_check == users_database[user_answ]["PIN"]:
+            #    print("Connexion réussie")
+            #    current_user = user_answ
+            #    return
+
+            #else: print("Veuillez réessayer")
 
         else: print("Votre nom n'est pas dans notre base de données")
         user_answ = input("Veuillez rentrer votre prénom : ")

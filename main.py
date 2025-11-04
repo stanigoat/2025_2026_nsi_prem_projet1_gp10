@@ -3,6 +3,8 @@ from functions_in_main import *
 
 load_database()
 
+
+
 def connection():
     show_intro()
     choice = ask_user_choice()
