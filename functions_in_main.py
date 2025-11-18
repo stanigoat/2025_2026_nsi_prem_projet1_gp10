@@ -43,13 +43,6 @@ def login_user():
             print("Connexion réussie")
             current_user = user_answ
             return  
-        
-            #if pin_check == users_database[user_answ]["PIN"]:
-            #    print("Connexion réussie")
-            #    current_user = user_answ
-            #    return
-
-            #else: print("Veuillez réessayer")
 
         else: print("Votre nom n'est pas dans notre base de données")
         user_answ = input("Veuillez rentrer votre prénom : ")
