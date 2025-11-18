@@ -93,13 +93,18 @@ def is_amount_valid(amount):
         return False
 
 def re_ask_amount():
-    amount = input("Veuillez rentrez un nombre positif comme montant de dépôt/retrait : ")
+    amount = input("Veuillez rentrez un nombre positif et inférieur ou égal à votre solde comme montant de dépôt/retrait : ")
     return amount
+
+def withdr_is_possible(amount):
+    users_database = load_database()
+    possibility = users_database[current_user]["Balance"] - int(amount)
+    return possibility >= 0
 
 def ask_user_withdr():
     amount = input("Veuillez rentrer le montant de votre retrait : ")
 
-    while not is_amount_valid(amount):
+    while not is_amount_valid(amount) or not withdr_is_possible(amount):
         amount = re_ask_amount()
 
     withdr_to_balance(amount)
