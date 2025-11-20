@@ -48,89 +48,81 @@ def ask_language () :
 
 
 
-"Historique" : [
-            {
-                "Action": "Dépôt",
-                "Montant": 3000,
-                "AncienSolde": 44655,
-                "NouveauSolde": 47655,
-                "Date": "2025-08-10T11:13:47"
-            },
-            {
-                "Action": "Retrait",
-                "Montant": 500,
-                "AncienSolde": 45155,
-                "NouveauSolde": 44655,
-                "Date": "2025-07-28T15:28:09"
-            },
-            {
-                "Action": "Retrait",
-                "Montant": 845,
-                "AncienSolde": 46000,
-                "NouveauSolde": 45155,
-                "Date": "2025-06-14T10:01:22"
-            },
-            {
-                "Action": "Dépôt",
-                "Montant": 1500,
-                "AncienSolde": 44500,
-                "NouveauSolde": 46000,
-                "Date": "2025-05-05T19:14:58"
-            }
-        ]
-
-"Historique" : [
-            {
-                "Action": "Retrait",
-                "Montant": 500,
-                "AncienSolde": 50500,
-                "NouveauSolde": 50000,
-                "Date": "2025-07-19T14:45:02"
-            },
-            {
-                "Action": "Retrait",
-                "Montant": 250,
-                "AncienSolde": 50750,
-                "NouveauSolde": 50500,
-                "Date": "2025-06-03T12:18:44"
-            },
-            {
-                "Action": "Dépôt",
-                "Montant": 1000,
-                "AncienSolde": 49750,
-                "NouveauSolde": 50750,
-                "Date": "2025-05-17T09:21:10"
-            },
-            {
-                "Action": "Retrait",
-                "Montant": 750,
-                "AncienSolde": 50500,
-                "NouveauSolde": 49750,
-                "Date": "2025-04-29T17:52:30"
-            }
-        ]
+def show_history():
+    #montrer historique dépenses
+    
 
 
-"Historique" : [
-            {
-                "Action": "Retrait",
-                "Montant": 200,
-                "AncienSolde": 354764,
-                "NouveauSolde": 354564,
-                "Date": "2025-05-12T10:34:55"
-            },
-            {
-                "Action": "Dépôt",
-                "Montant": 1200,
-                "AncienSolde": 353564,
-                "NouveauSolde": 354764,
-                "Date": "2025-04-22T16:12:01"
-            },
-            {
-                "Action": "Retrait",
-                "Montant": 1000,
-                "AncienSolde": 354564,
-                "NouveauSolde": 353564,
-                "Date": "2025-04-10T08:11:29"
-            }
-        ]
+Parfait !
+Si tu veux **afficher uniquement “historique” et son contenu** pour un client, voici la manière la plus simple et directe.
+
+---
+
+# ✅ Code minimal pour afficher uniquement l'historique
+
+```python
+def montrer_historique(client_name, clients):
+    # Vérification si le client existe
+    if client_name not in clients:
+        print("Client introuvable.")
+        return
+    
+    # Récupérer l'historique uniquement
+    historique = clients[client_name]["historique"]
+
+    print("\n=== HISTORIQUE ===")
+    for entry in historique:
+        print(entry)
+```
+
+---
+
+# 🎯 Résultat affiché (exemple pour Patrick)
+
+```
+=== HISTORIQUE ===
+{'Action': 'Dépôt', 'Montant': 3000, 'AncienSolde': 44655, 
+ 'NouveauSolde': 47655, 'Date': '2025-08-10T11:13:47'}
+
+{'Action': 'Retrait', 'Montant': 500, 'AncienSolde': 45155, 
+ 'NouveauSolde': 44655, 'Date': '2025-07-28T15:28:09'}
+
+...
+```
+
+---
+
+# 💡 Si tu veux un affichage plus propre :
+
+```python
+def montrer_historique(client_name, clients):
+    if client_name not in clients:
+        print("Client introuvable.")
+        return
+    
+    historique = clients[client_name]["historique"]
+
+    print("\n=== HISTORIQUE ===")
+    for op in historique:
+        print(f"{op['Date']} - {op['Action']} de {op['Montant']} € "
+              f"(Solde: {op['AncienSolde']} → {op['NouveauSolde']})")
+```
+
+---
+
+# 🎯 Résultat plus propre
+
+```
+=== HISTORIQUE ===
+2025-08-10T11:13:47 - Dépôt de 3000 € (Solde: 44655 → 47655)
+2025-07-28T15:28:09 - Retrait de 500 € (Solde: 45155 → 44655)
+2025-06-14T10:01:22 - Retrait de 845 € (Solde: 46000 → 45155)
+...
+```
+
+---
+
+Si tu veux que je t’intègre cette fonction directement dans ton **menu**, je peux t’écrire la version complète.
+
+    
+

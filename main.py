@@ -32,7 +32,10 @@ def after_login():
     elif choice == "3":
         ask_user_withdr()
         return
-    elif choice == "4":
+    elif choice == "4" : 
+        show_history()
+        return
+    elif choice == "5":
         quit()
     else:
         choice = re_ask_user_choice()
@@ -56,8 +59,5 @@ while True:
 
         
     
-
-
-
 
 
