@@ -139,3 +139,5 @@ def actualize_history():
 def bank_transfer(amount):
     pass
 
+def show_private_info():
+    pass
