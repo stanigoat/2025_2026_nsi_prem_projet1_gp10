@@ -141,3 +141,9 @@ def bank_transfer(amount):
 
 def show_private_info():
     pass
+
+def show_history():
+    pass
+
+def change_card_pin():
+    pass
