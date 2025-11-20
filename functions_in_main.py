@@ -93,7 +93,7 @@ def is_amount_valid(amount):
         return False
 
 def re_ask_amount():
-    amount = input("Veuillez rentrez un nombre positif et inférieur ou égal à votre solde comme montant de dépôt/retrait : ")
+    amount = input("Veuillez rentrez un nombre positif et inférieur ou égal à votre solde comme montant de dépôt/retrait/virement : ")
     return amount
 
 def withdr_is_possible(amount):
@@ -136,8 +136,43 @@ def cut_withdr_cash(amount):
 def actualize_history():
     pass
 
-def bank_transfer(amount):
-    pass
+def re_ask_reciever():
+    account = input("Veuillez rentrer un destinataire valide : ")
+    return account
+
+def ask_user_transfer_reciever():
+    users_database = load_database()
+    reciever = input("Veuillez rentrer le nom du destinataire de votre virmement")
+
+    while reciever not in users_database or reciever == current_user:
+        reciever = re_ask_reciever()
+
+    return reciever
+
+def transfer_to_account(amount, reciever):
+    users_database = load_database()
+    balance = users_database[current_user]["Balance"]
+    reciever_balance = users_database[reciever]["Balance"]
+
+    debit = balance - int(amount)
+    users_database[current_user]["Balance"] = debit
+
+    balance_reciever = users_database[reciever]["Balance"] + int(amount)
+    users_database[reciever]["Balance"] = balance_reciever
+
+    with open("database.json", "w") as f:
+        json.dump(users_database, f, indent=4)
+
+    print(f"Vous avez effectué un virement de {amount} € adresse a {reciever}, votre solde banquaire est donc désormais de {debit}")
+
+def bank_transfer():
+    amount = input("Veuillez rentrer le montant de votre virement : ")
+
+    while not is_amount_valid(amount) or not withdr_is_possible(amount):
+        amount = re_ask_amount()
+
+    reciever = ask_user_transfer_reciever()
+    transfer_to_account(amount, reciever)
 
 def show_private_info():
     pass
