@@ -129,3 +129,13 @@ def ask_if_user_want_action():
     print("1. CONTINUER")
     print("2. QUITTER")
     print("-----------------------------------------------------------")
+
+def cut_withdr_cash(amount):
+    pass
+
+def actualize_history():
+    pass
+
+def bank_transfer(amount):
+    pass
+
