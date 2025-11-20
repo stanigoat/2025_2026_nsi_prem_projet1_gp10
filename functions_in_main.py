@@ -54,7 +54,8 @@ def show_options():
     print("1. AFFICHER LE SOLDE")
     print("2. DEPOT")
     print("3. RETRAIT")
-    print("4. QUITTER")
+    print("4. MONTRER HISTORIQUE")
+    print("5. QUITTER")
     print("-----------------------------------------------------------")
 
 def show_user_balance():
@@ -182,3 +183,6 @@ def show_history():
 
 def change_card_pin():
     pass
+
+def show_user_history() : 
+    pass 
