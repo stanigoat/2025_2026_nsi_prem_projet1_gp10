@@ -2,6 +2,7 @@
 import json
 
 quitting_words = ["quit", "stop", "bye"]
+cash_options = [500, 200, 100, 50, 20, 10, 5, 2, 1]
 
 def load_database():
     with open("database.json", "r") as f:
@@ -131,8 +132,21 @@ def ask_if_user_want_action():
     print("2. QUITTER")
     print("-----------------------------------------------------------")
 
+
+def cut_in_cash(amount, cash_cut):
+    count = 0
+    while amount >= cash_cut:
+        amount = amount - cash_cut
+        count = count + 1
+    return count
+
 def cut_withdr_cash(amount):
-    pass
+    while amount != 0:
+        for cash_cut in cash_options:
+            counter = cut_in_cash(amount, cash_cut)
+
+            if counter > 0:
+                result[cash_cut] = counter
 
 def actualize_history():
     pass
@@ -183,6 +197,4 @@ def show_history():
 
 def change_card_pin():
     pass
-
-def show_user_history() : 
-    pass 
+ 
