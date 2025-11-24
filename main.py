@@ -32,10 +32,16 @@ def after_login():
     elif choice == "3":
         ask_user_withdr()
         return
-    elif choice == "4" : 
-        show_history()
+    elif choice == "4":
+        bank_transfer()
         return
     elif choice == "5":
+        show_history()
+        return
+    elif choice == "6":
+        change_card_pin()
+        return
+    elif choice == "7":
         quit()
     else:
         choice = re_ask_user_choice()

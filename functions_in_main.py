@@ -55,14 +55,30 @@ def show_options():
     print("1. AFFICHER LE SOLDE")
     print("2. DEPOT")
     print("3. RETRAIT")
-    print("4. MONTRER HISTORIQUE")
-    print("5. QUITTER")
+    print("4. VIREMENT")
+    print("5. MONTRER HISTORIQUE")
+    print("6. CHANGER DE CODE")
+    print("7. QUITTER")
     print("-----------------------------------------------------------")
 
 def show_user_balance():
     users_database = load_database()
     solde = users_database[current_user]["Balance"]
     print(f"Votre solde banquaire est : {solde} €")
+
+def refresh_history(user, action, montant, role):
+    users_database = load_database()
+
+    entree = {
+        "Action": action,
+        "Montant": int(montant),
+        "Role": role
+    }
+
+    users_database[user]["History"].insert(0, entree)
+
+    with open("database.json", "w") as f:
+        json.dump(users_database, f, indent=4)
 
 def ask_user_depot():
     amount = input("Veuillez rentrer le montant de votre dépôt : ")
@@ -79,6 +95,7 @@ def depot_to_balance(amount):
 
     depot = balance + int(amount)
     users_database[current_user]["Balance"] = depot
+    refresh_history(current_user, "depot", amount, )
 
     with open("database.json", "w") as f:
         json.dump(users_database, f, indent=4)
@@ -118,6 +135,7 @@ def withdr_to_balance(amount):
 
     withdr = balance - int(amount)
     users_database[current_user]["Balance"] = withdr
+    refresh_history(current_user, "retrait", amount)
 
     with open("database.json", "w") as f:
         json.dump(users_database, f, indent=4)
@@ -141,6 +159,7 @@ def cut_in_cash(amount, cash_cut):
     return count
 
 def cut_withdr_cash(amount):
+    result = {}
     while amount != 0:
         for cash_cut in cash_options:
             counter = cut_in_cash(amount, cash_cut)
@@ -148,8 +167,6 @@ def cut_withdr_cash(amount):
             if counter > 0:
                 result[cash_cut] = counter
 
-def actualize_history():
-    pass
 
 def re_ask_reciever():
     account = input("Veuillez rentrer un destinataire valide : ")
@@ -188,13 +205,43 @@ def bank_transfer():
 
     reciever = ask_user_transfer_reciever()
     transfer_to_account(amount, reciever)
+    refresh_history(current_user, "virement", amount, "envoyeur")
+    refresh_history(reciever, "virement", amount, "receveur")
+
 
 def show_private_info():
-    pass
+    users_database = load_database()
+    infos = users_database[current_user]
+
+    print(f"PIN : {infos.get('PIN')}")
+    print(f"Solde : {infos.get('Balance')}")
 
 def show_history():
-    pass
+    users_database = load_database()
+    infos = users_database[current_user]
+    history = infos.get("History")
+
+    print("=== Historique ===")
+
+    if not history:
+        print("Aucune opération enregistrée.")
+        return
+
+    for entry in history:
+        action = entry.get("Action")
+        montant = entry.get("Montant")
+        role = entry.get("Role")
+
+        print(f"  Montant      : {montant}\n")
+        print(f"  Action       : {action}")
+        print(f"  Role       : {role}")
 
 def change_card_pin():
-    pass
- 
+    users_database = load_database()
+
+    new_pin = input("Veuillez rentrer votre nouveau code de carte : ")
+    users_database[current_user]["PIN"] = new_pin
+
+def log_out():
+    login_user()
+    return
