@@ -174,7 +174,7 @@ def re_ask_reciever():
 
 def ask_user_transfer_reciever():
     users_database = load_database()
-    reciever = input("Veuillez rentrer le nom du destinataire de votre virmement")
+    reciever = input("Veuillez rentrer le nom du destinataire de votre virmement : ")
 
     while reciever not in users_database or reciever == current_user:
         reciever = re_ask_reciever()
