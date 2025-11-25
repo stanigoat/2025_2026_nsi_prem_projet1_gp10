@@ -1,8 +1,18 @@
 {
     "Patrick": {
         "PIN": 3551,
-        "Balance": 88761,
+        "Balance": 88360,
         "History": [
+            {
+                "Action": "virement",
+                "Montant": 1,
+                "Role": "envoyeur"
+            },
+            {
+                "Action": "virement",
+                "Montant": 400,
+                "Role": "envoyeur"
+            },
             {
                 "Action": "virement",
                 "Montant": 235,
@@ -57,8 +67,18 @@
     },
     "Pascal": {
         "PIN": 1254,
-        "Balance": 91393,
+        "Balance": 91794,
         "History": [
+            {
+                "Action": "virement",
+                "Montant": 1,
+                "Role": "receveur"
+            },
+            {
+                "Action": "virement",
+                "Montant": 400,
+                "Role": "receveur"
+            },
             {
                 "Action": "virement",
                 "Montant": 235,

@@ -57,9 +57,8 @@ def show_options():
     print("3. RETRAIT")
     print("4. VIREMENT")
     print("5. MONTRER HISTORIQUE")
-    print("6. CHANGER DE CODE")
-    print("7. SE DECONNECTER")
-    print("8. QUITTER")
+    print("6. SE DECONNECTER")
+    print("7. QUITTER")
     print("-----------------------------------------------------------")
 
 def show_user_balance():

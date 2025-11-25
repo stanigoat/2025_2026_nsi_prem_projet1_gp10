@@ -39,12 +39,9 @@ def after_login():
         show_history()
         return
     elif choice == "6":
-        change_card_pin()
-        return
-    elif choice == "7":
         log_out()
         return
-    elif choice == "8":
+    elif choice == "7":
         quit()
     else:
         choice = re_ask_user_choice()
