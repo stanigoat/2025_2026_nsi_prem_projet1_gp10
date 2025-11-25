@@ -35,7 +35,7 @@ def login_user():
     while user_answ not in quitting_words:
 
         if user_answ in users_database:
-            pin_check = int(input("Veuillez rentrer votre pin ( ex : 1234 ): "))
+            pin_check = input("Veuillez rentrer votre pin ( ex : 1234 ): ")
 
             while pin_check != users_database[user_answ]["PIN"]:
                 print("Veuillez réessayer")
@@ -236,12 +236,6 @@ def show_history():
         print(f"  Montant      : {montant}\n")
         print(f"  Action       : {action}")
         print(f"  Role       : {role}")
-
-def change_card_pin():
-    users_database = load_database()
-
-    new_pin = input("Veuillez rentrer votre nouveau code de carte : ")
-    users_database[current_user]["PIN"] = new_pin
 
 def log_out():
     login_user()
