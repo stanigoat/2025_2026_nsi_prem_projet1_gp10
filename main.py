@@ -42,6 +42,9 @@ def after_login():
         change_card_pin()
         return
     elif choice == "7":
+        log_out()
+        return
+    elif choice == "8":
         quit()
     else:
         choice = re_ask_user_choice()
